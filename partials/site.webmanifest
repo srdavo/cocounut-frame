@@ -1,0 +1,20 @@
+{
+  "display": "standalone",
+  "name": "Cocounut Frame",
+  "short_name": "Cocounut Frame",
+  "description": "This is an app",
+  "start_url": "../",
+  "scope": ".",
+  "icons": [
+  {
+    "src": "../resources/icon.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  },
+  {
+    "src": "../resources/icon.png",
+    "type": "image/png",
+    "sizes": "512x512"
+  }
+  ]
+}
