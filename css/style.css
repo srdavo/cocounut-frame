@@ -414,6 +414,10 @@ select.toolbar-select{
 
 }
 select.toolbar-select:hover{background: var(--surfaceMedium);}
+input.error, select.error{
+    color: #FF5555;
+    box-shadow: 0px 0px 0px 3px rgba(255, 85, 85, 0.30), 0px 0px 0px 0.5px rgba(255, 85, 85, 0.05) !important;
+}
 
 
 /* CONTAINERS content_box */
