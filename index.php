@@ -52,7 +52,7 @@ include_once 'partials/header.php';
       <button data-flip-id="animate" onclick="toggleWindow('#signup')" class="toolbar-button ripple_effect">Crear cuenta</button>
     </toolbar>
 
-    <section class="active" id="section-start" style="padding-top:0; align-content: stretch">
+    <section class="active indexSection" id="section-start">
       <div class="content_box small" >
           <img src="resources/start_img.png" style="width:100%; height:100%; object-fit:cover; border-radius:16px">
       </div>

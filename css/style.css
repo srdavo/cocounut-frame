@@ -121,6 +121,11 @@ section.active{display:flex;}
 section.sub_section{animation: startAnimation2 1s cubic-bezier(0.1, 0.8, 0, 1);}
 @keyframes startAnimation {from {opacity:0; transform: translateX(-5px);}}
 @keyframes startAnimation2 {from {opacity:0; transform: translateX(5px);}}
+section.indexSection{
+    padding:8px;  
+    padding-top:0;  
+    align-content: stretch;
+}
 
 
 /* SIDEBAR & SELECTOR */
