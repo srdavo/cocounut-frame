@@ -2,7 +2,7 @@
   "display": "standalone",
   "name": "Cocounut Frame",
   "short_name": "Cocounut Frame",
-  "description": "This is an app",
+  "description": "Build your apps with this structure",
   "start_url": "../",
   "scope": ".",
   "icons": [

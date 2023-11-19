@@ -186,7 +186,7 @@ function animate(element, window){
     window.classList.toggle('active');
     Flip.from(state, {
       targets: window,
-      duration: 0.7,
+      duration: 0.5,
       // scale: true,
       ease: CustomEase.create("custom", "M0,0 C0.308,0.19 0.107,0.633 0.288,0.866 0.382,0.987 0.656,1 1,1 "),
       // ease: CustomEase.create("easeName", ".47,.29,0,1"),
@@ -201,42 +201,45 @@ function animate(element, window){
 }
 
 // Main complementary functions
-function resetForm(){
-  inputs = document.querySelectorAll('input:not(.no-reset) , textarea, select:not(.no-reset)');
+function resetForm(specificParent){
+  if (specificParent) {
+    checkParent = document.querySelector(specificParent);
+    inputs = checkParent.querySelectorAll('input:not(.no-reset) , textarea, select:not(.no-reset)');
+  }else{
+    inputs = document.querySelectorAll('input:not(.no-reset) , textarea, select:not(.no-reset)');
+  }
+  
   for (let i=0; i<inputs.length; i++){
     inputs[i].value = inputs[i].defaultValue;
     inputs[i].style.backgroundColor = "";
     inputs[i].classList.remove('error');
   }
-  if(document.getElementById('new_selects') !== null){
-    document.getElementById('new_selects').innerHTML = '';
+  if(document.getElementById('end_service-new_selects') !== null){
+    document.getElementById('end_service-new_selects').innerHTML = '';
   }
   button = document.querySelector("BUTTON")
   if(button){
     button.disabled = false;
   }
-  loadAnimation('body', false);
 }
 function checkEmpty(parentId, element, type){
   parent = document.querySelector(parentId);
   inputs = parent.querySelectorAll(element);
   validation = 0;
   for (let i=0; i<inputs.length; i++){
-      inputs[i].addEventListener("focus", function() {inputs[i].classList.remove('error')});
-      if(inputs[i].value === "" || inputs[i].value === "0"){ 
-        validation = 1; 
-        if(type != "dialog"){inputs[i].classList.add('error')}
-      }
+    inputs[i].addEventListener("focus", function() {inputs[i].classList.remove('error')}, {once: true});
+    if(inputs[i].value === "" || inputs[i].value === "0"){ 
+      validation = 1; 
+      inputs[i].classList.add('error');
+    }
   }
   // console.log(validation);
   if(validation != 0){
-    console.log("Se han encontrado espacios vacios");
     if(type==="dialog"){toggleWindow("#empty_spaces")} 
     return false;
-    }else{
-      console.log("No se han encontrado espacios vacios");
-      return true
-    }
+  }else{
+    return true
+  }
 }
 function loadAnimation(parentId, action){
   parent = document.querySelector(parentId);

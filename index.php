@@ -1,8 +1,8 @@
 <?php 
 include_once 'partials/header.php'; 
-// if (isset($_COOKIE['uid'])) {
-//     header("location: includes/login.inc.php");
-// }
+if (isset($_COOKIE['uid'])) {
+    header("location: includes/login.inc.php");
+}
 ?>
 
 <transparent>

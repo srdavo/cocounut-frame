@@ -5,23 +5,25 @@ if(isset($_SESSION["id"])){$userid = $_SESSION["id"];}
 checkSession();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css?v=1">
+    <link rel="stylesheet" href="css/style.css?v=s2">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
 
     <!-- Manifest -->
     <link rel="manifest" href="partials/site.webmanifest" >
 
     <title>Cocounut Frame</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- Theme selector -->
-    <!-- <script src="js/theme.js"></script> -->
+    <script src="js/theme.js?v=1"></script>
 
     <!-- fonts / icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
