@@ -1,6 +1,6 @@
 <?php 
     include_once 'partials/header.php'; 
-    // include_once 'includes/functions.php';
+    include_once 'includes/utilities.php';
     date_default_timezone_set('America/Mazatlan');
 ?>
 
@@ -11,6 +11,14 @@
             <p>¿Estas seguro de que quieres cerrar sesión?</p>
             <button class="toolbar-button" onclick="toggleWindow()">Cancelar</button>
             <button class="toolbar-button ripple_effect" onclick="localStorage.setItem('currentSection', ''); window.location='includes/logout.inc.php'">Cerrar sesión</button>
+        </section>
+    </window>
+    <window id="window-test" class="increased slim" data-flip-id="animate">
+        <toolbar>
+            <button onclick="toggleWindow()" class="action"><span class="material-symbols-rounded">close</span></button>
+        </toolbar>
+        <section>
+            <h1>Ventana de prueba</h1>
         </section>
     </window>
 </transparent>
@@ -45,16 +53,22 @@
             <div class="content_box small">
                 <h2>Elementos</h2>
                 <button class="color-normal ripple_effect">Button</button>
+                <button class="color-outline ripple_effect">Button</button>
                 <button class="small color-normal ripple_effect">Small button</button>
+                <button class="small color-primary ripple_effect">Small button</button>
+                <button class="small color-primaryNeutral ripple_effect">Small button</button>
                 <button class="toolbar-button ripple_effect">Toolbar button</button>
                 <button class="table-button ripple_effect"><span class="material-symbols-rounded">edit</span></button>
+                <button class="table-button small ripple_effect"><span class="material-symbols-rounded">edit</span></button>
                 <div class="info_element">
                     <button class="toolbar-button ripple_effect"><span class="material-symbols-rounded">Help</span></button>
                     <span class="hover_info">Action details</span>
                 </div>
 
             </div>
-            <div class="content_box small"></div>
+            <div class="content_box small">
+                <button onclick="toggleWindow('#window-test')" class="color-primaryNeutral ripple_effect" data-flip-id="animate">Abrir ventana</button>
+            </div>
         
         </section>
 
