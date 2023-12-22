@@ -66,7 +66,7 @@ body{
 main{
     display:flex;
     width:100%;
-    height: 100vh;    
+    height: 100%;    
     max-width:calc(100% - 40px);
     max-height: calc(100% - 40px);
     background: var(--surfaceMedium);
@@ -339,11 +339,11 @@ button.action{
     height: auto;
     padding: 2px;
     background: transparent;
+    animation: buttonAnimation 0.7s cubic-bezier(.56,.27,0,1);
 }
-button.action > * {
-    color: rgba(var(--normalInverted), 0.85);
-}
-button.action:hover{ background: var(--surfaceFull); }
+@keyframes buttonAnimation {from {transform: scale(0);}}
+button.action > *{color: rgba(var(--normalInverted), 0.85);}
+button.action:hover{ background: var(--surfaceFull);}
 
 /* General button propeties */
 button > *{pointer-events: none;}
@@ -575,7 +575,17 @@ div.content_box.invisible{
 .nowrap{flex-direction: row !important;}
 .nowrap > * {width:auto;}
 
-/* Test for new types of content_box */
+/* VisualFrame visual_frame */
+.vf_container{
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    gap:8px;
+    border-radius:32px;
+  }
 .visual_frame{
     display: flex;
     flex-wrap: wrap;
@@ -844,9 +854,8 @@ window.increased{
     max-width: 1200px;
     height: 100%;
 }
-window.increased.slim{
-    max-width: 400px;
-}
+window.increased.slim{ max-width: 400px; }
+window.increased.slim.h-auto{ height: auto; }
 :root[data-theme="dark"] window{
     box-shadow: unset;
     /* box-shadow: 0px 0px 0px 4px rgba(var(--normalInverted), 0.12); */
@@ -950,9 +959,10 @@ message.unactive{display:none; animation: messageOut 0.7s}
 @keyframes messageIn {from{top:-12px;}to{top: 12px;}}
 @keyframes messageOut {from{top:12px;}to{top: -32px;}}
 
-
-
-
+/* This is the index img icon */
+:root[data-theme="dark"] .texticon-index{
+    filter: invert() hue-rotate(180deg);
+}
 
 /* MOBILE MODIFICATIONS */
 @media only screen and (max-width: 680px){
@@ -987,16 +997,17 @@ message.unactive{display:none; animation: messageOut 0.7s}
         width: 100%;
         max-width: 100%;
     }
+    window.increased.slim.h-auto{ height: calc(100% + 32px); }
     window.increased{
         padding-top: env(safe-area-inset-top);
-        max-width: unset;
+        max-width: unset !important;
         max-height: unset;
         width: 100%;
         margin:-16px;
         height: calc(100% + 32px);
         border-radius: 0;
         animation: window-border-radius 1000ms cubic-bezier(.56,.27,0,1);
-    }
+    }  
     @keyframes window-border-radius{from{border-radius: 48px;}}
     window.absolute{position:relative; inset: 0 !important;}
     holder > toolbar:not(.invisible){
