@@ -249,6 +249,7 @@ bottombar selector.active .material-symbols-rounded{
 /* TEXTS */
 h1, h2, h3, h4, p{margin:0; width:100%; color:rgba(var(--normalInverted), 0.85); font-weight: normal;}
 h1.large{font-size:26px; line-height: 32px;}
+h1.ultra-large{font-size:32px; line-height: 48px;}
 h1{font-size:22px; line-height: 26px; font-weight: 600;}
 h2{font-size:17px; line-height: 22px;}
 h3{font-size:13px; line-height: 16px;}
@@ -344,6 +345,20 @@ button.action{
 @keyframes buttonAnimation {from {transform: scale(0);}}
 button.action > *{color: rgba(var(--normalInverted), 0.85);}
 button.action:hover{ background: var(--surfaceFull);}
+
+button.big-button{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    font-size: 18px;
+    border-radius: 16px;
+    transition: padding-right 125ms;
+}
+button.big-button:hover{
+    padding-right: 18px;
+}
 
 /* General button propeties */
 button > *{pointer-events: none;}
@@ -854,7 +869,7 @@ window.increased{
     max-width: 1200px;
     height: 100%;
 }
-window.increased.slim{ max-width: 400px; }
+window.slim{ max-width: 400px; }
 window.increased.slim.h-auto{ height: auto; }
 :root[data-theme="dark"] window{
     box-shadow: unset;
@@ -960,6 +975,7 @@ message.unactive{display:none; animation: messageOut 0.7s}
 @keyframes messageOut {from{top:12px;}to{top: -32px;}}
 
 /* This is the index img icon */
+.texticon-index{height: 20px;}
 :root[data-theme="dark"] .texticon-index{
     filter: invert() hue-rotate(180deg);
 }

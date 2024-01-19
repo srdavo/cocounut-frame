@@ -22,19 +22,27 @@ if (userexists($conn, $user, $email) !== false) {
   exit();
 }
 
-
-
-
 signup($conn, $email, $pwd);
 openuser($conn, $email, $pwd);
 
+$user_token = generateToken();
 $userid = $_SESSION["id"];
-$sql = "INSERT INTO users_data (user_id, permissions) VALUES (?, ?);";
+$sql = "INSERT INTO users_data (user_id, user_token, permissions) VALUES (?, ?, ?);";
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)) { echo "error"; exit();}
-mysqli_stmt_bind_param($stmt, "ii", $userid, $permissions);
-mysqli_stmt_execute($stmt);
-mysqli_stmt_close($stmt);
+mysqli_stmt_bind_param($stmt, "isi", $userid, $user_token, $permissions);
+try{
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+}catch(mysqli_sql_exception $e){
+  $user_token = generateToken();
+  $sql = "INSERT INTO users_data (user_id, user_token, permissions) VALUES (?, ?, ?);";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) { echo "error"; exit();}
+  mysqli_stmt_bind_param($stmt, "isi", $userid, $user_token, $permissions);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+}
 
 
 ?>

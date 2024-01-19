@@ -5,9 +5,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/functions.js?v=1"></script>
     <script>
-        if(localStorage.getItem("currentSection") != ""){
-            toggleSection(localStorage.getItem("currentSection"));
-        }
+        // if(localStorage.getItem("currentSection") != ""){
+        //     toggleSection(localStorage.getItem("currentSection"));
+        // }
     </script>
 </body>
 </html>

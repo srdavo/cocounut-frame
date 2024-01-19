@@ -24,7 +24,7 @@ if (isset($_COOKIE['uid'])) {
     </section>
   </window> -->
 
-  <window id="signup" class="dialog" data-flip-id="animate">
+  <!-- <window id="signup" class="dialog" data-flip-id="animate">
     <toolbar>
       <div class="content_box invisible">
         <button class="action red" onclick="toggleWindow()"><span class="material-symbols-rounded dynamic">close</span></button>
@@ -42,17 +42,52 @@ if (isset($_COOKIE['uid'])) {
         <button class="color-primary ripple_effect" style="margin-top:6px; margin-left:auto" onclick="signUp()">Crear</button>
       </div>
     </section>
-  </window>
+  </window> -->
 
-  <window id="login" class="increased slim h-auto" data-flip-id="animate">
+  <window id="signup" class="slim" data-flip-id="animate">
     <toolbar>
       <div class="content_box invisible">
         <button class="action red" onclick="toggleWindow()"><span class="material-symbols-rounded dynamic">close</span></button>
       </div> 
     </toolbar>
     <section>
-      <img src="resources/texticon.png" class="texticon-index">
-      <h1 class="large">Iniciar sesión</h1>
+
+      <div class="simple_container" style="margin-bottom:8px;">
+        <img src="resources/texticon.png" class="texticon-index">
+        <h1 class="ultra-large">Crear cuenta</h1>
+      </div>
+
+      <div class="simple_container">
+        <span class="modern-input">
+          <label for="email">Correo electrónico</label>
+          <input type="text" id="email" autocomplete="none">
+        </span>
+        <span class="modern-input">
+          <label for="pwdsignup">Contraseña</label>
+          <input type="password" id="pwdsignup" autocomplete="none">
+        </span>
+        <span class="modern-input">
+          <label for="pwdrepeat">Repite la contraseña</label>
+          <input type="password" id="pwdrepeat" autocomplete="none">
+        </span>
+      </div>
+      <button class="color-primary ripple_effect" onclick="signUp()">Crear cuenta</button>
+
+    </section>
+  </window>
+
+  <window id="login" class="slim" data-flip-id="animate">
+    <toolbar>
+      <div class="content_box invisible">
+        <button class="action red" onclick="toggleWindow()"><span class="material-symbols-rounded dynamic">close</span></button>
+      </div> 
+    </toolbar>
+    <section>
+      <div class="simple_container" style="margin-bottom:8px;">
+        <img src="resources/texticon.png" class="texticon-index">
+        <h1 class="ultra-large">Iniciar sesión</h1>
+      </div>
+      
       <div class="simple_container">
         <span class="modern-input">
           <label for="name">Correo o nombre de usuario</label>
@@ -62,9 +97,9 @@ if (isset($_COOKIE['uid'])) {
           <label for="pwd">Contraseña</label>
           <input type="password" id="pwd">
         </span>
-                
-        <button class="color-primary ripple_effect" style="margin-top:6px; margin-left:auto" onclick="logIn()">Iniciar sesión</button>
       </div>
+      <button class="color-primary ripple_effect" onclick="logIn()">Iniciar sesión</button>
+
     </section>
   </window>
     
